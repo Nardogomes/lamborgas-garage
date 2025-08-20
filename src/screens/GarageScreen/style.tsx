@@ -4,7 +4,7 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: '100%',
-    backgroundColor: '#001fcc',
+    backgroundColor: '#3b3c3d',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
     height: '85%',
     borderWidth: 2,
     borderRadius: 6,
-    borderColor: '#766cff',
+    borderColor: '#da9a16',
     position: 'relative',
     overflow: 'hidden'
   },
@@ -23,7 +23,7 @@ export const styles = StyleSheet.create({
     height: 0,
     borderStyle: 'solid',
     borderTopWidth: 20,
-    borderTopColor: '#766cff',
+    borderTopColor: '#da9a16',
     borderRightWidth: 20,
     borderRightColor: 'transparent'
   },

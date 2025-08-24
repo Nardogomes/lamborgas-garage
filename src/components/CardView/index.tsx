@@ -6,6 +6,7 @@ import { Divider } from '../Divider'
 import { styles } from './style'
 import Logo from '../../../assets/lamborghini-logo.png'
 import { CAR_ASSETS_BASE_URL } from '../../constants/car'
+import { BuyButton } from '../BuyButton/indetx'
 
 export function CardView() {
   const renderLogoBox = () => (
@@ -35,6 +36,8 @@ export function CardView() {
       {renderCarDetails()}
 
       {renderCarImage()}
+
+      <BuyButton />
     </View>
   )
 }

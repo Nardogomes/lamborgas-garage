@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Image, Text } from 'react-native'
+import { View, Image, Text, Button } from 'react-native'
 
 import { Divider } from '../Divider'
 
@@ -27,6 +27,16 @@ export function CardView() {
     <Image style={styles.carImage} source={{ uri: `${CAR_ASSETS_BASE_URL}2.png` }} />
   )
 
+  const renderPriceControls = () => (
+    <View style={styles.priceLabelContainer}>
+      <Button title='<' color={'#da9a16'} onPress={ () => {} } />
+
+      <Text style={styles.priceLabel}>Valor</Text>
+      
+      <Button title='>' color={'#da9a16'} onPress={ () => {} } />
+    </View>
+  )
+
   return (
     <View style={styles.imageContainer}>
       {renderLogoBox()}
@@ -38,6 +48,8 @@ export function CardView() {
       {renderCarImage()}
 
       <BuyButton />
+
+      {renderPriceControls()}
     </View>
   )
 }

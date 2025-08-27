@@ -1,14 +1,24 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { View, Image, Text, Button } from 'react-native'
 
 import { Divider } from '../Divider'
+import { BuyButton } from '../BuyButton/indetx'
+import { CAR_ASSETS_BASE_URL } from '../../constants/car'
+import { CarModel } from './props'
+import { loadCarData } from './actions'
 
 import { styles } from './style'
 import Logo from '../../../assets/lamborghini-logo.png'
-import { CAR_ASSETS_BASE_URL } from '../../constants/car'
-import { BuyButton } from '../BuyButton/indetx'
 
 export function CardView() {
+  const [carDate, setCarData] = useState<CarModel | null>(null)
+
+  useEffect(() => {
+    (async () => {
+      await loadCarData(1, setCarData)
+    })()
+  }, [])
+
   const renderLogoBox = () => (
     <View style={styles.logoContainer}>
       <Image source={Logo} style={styles.imageLogo} />

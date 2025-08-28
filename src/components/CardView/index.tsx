@@ -5,13 +5,13 @@ import { Divider } from '../Divider'
 import { BuyButton } from '../BuyButton/indetx'
 import { CAR_ASSETS_BASE_URL } from '../../constants/car'
 import { CarModel } from './props'
-import { loadCarData } from './actions'
+import { loadCarData, handlePreviuosItem, handleNextItem } from './actions'
 
 import { styles } from './style'
 import Logo from '../../../assets/lamborghini-logo.png'
 
 export function CardView() {
-  const [carDate, setCarData] = useState<CarModel | null>(null)
+  const [carData, setCarData] = useState<CarModel | null>(null)
 
   useEffect(() => {
     (async () => {
@@ -27,23 +27,29 @@ export function CardView() {
 
   const renderCarDetails = () => (
     <View style={{ alignItems: 'center' }}>
-      <Text style={styles.carBrand}>Lamborghini</Text>
-
-      <Text style={styles.carName}>MODEL</Text>
+      <Text style={styles.carName}>{carData?.carName}</Text>
     </View>
   )
   
   const renderCarImage = () => (
-    <Image style={styles.carImage} source={{ uri: `${CAR_ASSETS_BASE_URL}2.png` }} />
+    <Image style={styles.carImage} source={{ uri: `${CAR_ASSETS_BASE_URL}${carData?.id}.png` }} />
   )
 
   const renderPriceControls = () => (
     <View style={styles.priceLabelContainer}>
-      <Button title='<' color={'#da9a16'} onPress={ () => {} } />
+      <Button
+        title='<'
+        color={'#da9a16'}
+        onPress={ () => handlePreviuosItem(carData, setCarData) }
+      />
 
-      <Text style={styles.priceLabel}>Valor</Text>
+      <Text style={styles.priceLabel}>{carData?.price}</Text>
       
-      <Button title='>' color={'#da9a16'} onPress={ () => {} } />
+      <Button
+        title='>'
+        color={'#da9a16'}
+        onPress={ () => handleNextItem(carData, setCarData) }
+      />
     </View>
   )
 

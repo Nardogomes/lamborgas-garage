@@ -30,7 +30,8 @@ export const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 20,
     fontWeight: 'bold',
-    textAlign: 'center'
+    textAlign: 'center',
+    marginTop: 10
   },
   carImage: {
     flex: 1,
